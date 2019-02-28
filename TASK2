@@ -1,0 +1,48 @@
+import java.util.Scanner;
+public class TASK2 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the size of array: ");
+
+        int size = input.nextInt();
+        int arr[] = new int[size];
+        int max;
+        int min;
+
+        System.out.println("Enter value of the array: ");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = input.nextInt();
+        }
+
+        max = arr[0];
+
+        for (int j = 0; j < arr.length; j++) {
+            if (arr[j] > max) {
+                max = arr[j];
+            }
+        }
+        min = arr[0];
+        for (int j = 0; j < arr.length; j++) {
+            if (arr[j] < min) {
+                min = arr[j];
+            }
+        }
+        
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i; j < arr.length; j++) {
+                if (arr[i] > arr[j]) {
+                    int tmp = arr[j];
+                    arr[j] = arr[i];
+                    arr[i] = tmp;
+                }
+            }
+        }
+        
+        System.out.println("Minimum value is " + min + "\nMaximum value is " + max);
+        System.out.print("Array smallest to biggest : ");
+        for (int c : arr) {
+            System.out.print(c + " ");
+        }
+    }
+}
+
